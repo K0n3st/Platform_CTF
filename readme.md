@@ -22,7 +22,7 @@
   With Docker (currently for development purposes only, the production image is work in progress):
 
     git clone https://github.com/K0n3st/Platform-CTF.git
-    cd laradock
+    cd Laradock
     cp env.example .env
     docker-compose up -d nginx mysql
     docker-compose exec mysql bash 
