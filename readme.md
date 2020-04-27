@@ -31,11 +31,11 @@
       mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
       mysql> ALTER USER 'default'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
       mysql> create database namedatabase;
-      exit
-      exit
+
   We go back to the Laradock .env file and edit MYSQL_DATABASE and MYSQL_ROOT_PASSWORD.
-  Then we configure the Laravel .env to take the data we create.
-  We restart the containers.
+ 
+ Then we configure the Laravel .env to take the data we create.
+ We restart the containers.
       
     docker-compose down
     docker-compose up -d nginx mysql
