@@ -25,8 +25,7 @@
     cd laradock
     cp env.example .env
     docker-compose up -d nginx mysql
-    docker-compose exec mysql bash
-    
+    docker-compose exec mysql bash 
       root@c2772502897c:/# mysql -u root -p
       mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
       mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
@@ -34,7 +33,7 @@
       mysql> create database namedatabase;
       exit
       exit
-  We go back to the Laradock .env file and edit MYSQL_DATABASE and MYSQL_ROOT_PASSWORD
+  We go back to the Laradock .env file and edit MYSQL_DATABASE and MYSQL_ROOT_PASSWORD.
   Then we configure the Laravel .env to take the data we create.
   We restart the containers.
       
@@ -42,6 +41,7 @@
     docker-compose up -d nginx mysql
     
   And finally we execute migrations.
+    
     docker-compose exec workspace bash
     php artisan key:generate
     php artisan migrate
