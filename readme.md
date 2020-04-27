@@ -22,8 +22,9 @@
   With Docker (currently for development purposes only, the production image is work in progress):
 
     git clone https://github.com/K0n3st/Platform-CTF.git
-    cd Laradock
     cp env.example .env
+    cd Laradock
+    cp env-example .env
     docker-compose up -d nginx mysql
     docker-compose exec mysql bash 
       root@c2772502897c:/# mysql -u root -p
@@ -32,11 +33,31 @@
       mysql> ALTER USER 'default'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
       mysql> create database namedatabase;
 
-  We go back to the Laradock .env file and edit MYSQL_DATABASE and MYSQL_ROOT_PASSWORD.
+ We go back to the Laradock .env file and edit DOCKER_HOST_IP and the database settings.
+
+    DOCKER_HOST_IP=127.0.0.1
+    
+    ### MYSQL #################################################
+    MYSQL_VERSION=latest
+    MYSQL_DATABASE=namedatabase
+    MYSQL_USER=root   
+    MYSQL_PASSWORD=root  
+    MYSQL_PORT=3306
+    MYSQL_ROOT_PASSWORD=root
+    MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
  
  Then we configure the Laravel .env to take the data we create.
+     
+    DB_CONNECTION=mysql
+    DB_HOST=mysql    
+    DB_PORT=3306
+    DB_DATABASE=namedatabase
+    DB_USERNAME=root
+    DB_PASSWORD=root
+    
  We restart the containers.
-      
+ 
+    cd Laradock  
     docker-compose down
     docker-compose up -d nginx mysql
     
