@@ -27,7 +27,7 @@
     cd Laradock
     cp env-example .env
     
-  In the .env file we have to change Docker compose files
+  In the .env file we have to change the Docker composition files section
      
     # Select which docker-compose files to include. If using docker-sync append `:docker-compose.sync.yml` at the end
     COMPOSE_FILE=docker-compose.yml -> COMPOSE_FILE:docker-compose.yml
