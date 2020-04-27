@@ -11,7 +11,8 @@
     composer install
     composer update
     cp env.example .env
-    Change name database, user and password Database in the .env file
+  Change name database, user and password Database in the .env file
+  
     php artisan key:generate
     php artisan migrate
     php artisan db:seed --class=DatabaseSeeder
@@ -25,6 +26,14 @@
     cp env.example .env
     cd Laradock
     cp env-example .env
+    
+  In the .env file we have to change Docker compose files
+     
+    # Select which docker-compose files to include. If using docker-sync append `:docker-compose.sync.yml` at the end
+    COMPOSE_FILE=docker-compose.yml -> COMPOSE_FILE:docker-compose.yml
+    
+  Then:
+  
     docker-compose up -d nginx mysql
     docker-compose exec mysql bash 
       root@c2772502897c:/# mysql -u root -p
