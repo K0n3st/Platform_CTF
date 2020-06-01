@@ -7,7 +7,7 @@
 ### Local
   Installation of Platform-CTF in traditional way is easy:
     
-    git clone https://github.com/K0n3st/Platform-CTF.git
+    git clone https://github.com/K0n3st/Platform-CTF
     composer install
     composer update
     cp env.example .env
@@ -22,7 +22,7 @@
 ### Docker
   With Docker (currently for development purposes only, the production image is work in progress):
 
-    git clone https://github.com/K0n3st/Platform-CTF.git
+    git clone https://github.com/K0n3st/Platform-CTF
     cp env.example .env
     cd Laradock
     cp env-example .env
