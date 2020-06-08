@@ -13,11 +13,11 @@ class Challenge extends Model
     }
 
     public function competition(){
-        return $this->belongsToMany('App\Category')->withPivot('points', 'start_date', 'end_date');
+        return $this->belongsToMany('App\Competition')->withPivot('points', 'start_date', 'end_date');
     }
 
     public function hints(){
-        return $this->hasMany('App\Hints');
+        return $this->hasMany('App\Hint');
     }
 
     public function dones(){
