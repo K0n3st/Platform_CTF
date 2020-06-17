@@ -52,9 +52,17 @@
                             <h5>{{$hints[0]->name}}</h5>
                             <p>{{$hints[0]->description}}</p>
                             @if(count($hints) == 2)
-                                <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/2/team' )}}">Unlock Hint 2</a></button>
+                                @if($competition->playmode == "team")
+                                    <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/2/team' )}}">Unlock Hint 1</a></button>
+                                @else
+                                    <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/2' )}}">Unlock Hint 1</a></button>
+                                @endif                            
                             @elseif(count($hints) == 3)
-                                <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/2/team' )}}">Unlock Hint 2</a></button>
+                                @if($competition->playmode == "team")
+                                    <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/2/team' )}}">Unlock Hint 1</a></button>
+                                @else
+                                    <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/2' )}}">Unlock Hint 1</a></button>
+                                @endif
                             @endif
                         @elseif(count($used_hints) == 2)
                             <h5>{{$hints[0]->name}}</h5>
@@ -62,7 +70,11 @@
                             <h5>{{$hints[1]->name}}</h5>
                             <p>{{$hints[1]->description}}</p>
                             @if(count($hints) == 3)
-                                <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/3/team' )}}">Unlock Hint 3</a></button>
+                                @if($competition->playmode == "team")
+                                    <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/3/team' )}}">Unlock Hint 1</a></button>
+                                @else
+                                    <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/3' )}}">Unlock Hint 1</a></button>
+                                @endif
                             @endif 
                         @elseif(count($used_hints) == 3)
                             <h5>{{$hints[0]->name}}</h5>
@@ -72,7 +84,11 @@
                             <h5>{{$hints[2]->name}}</h5>
                             <p>{{$hints[2]->description}}</p>
                         @elseif(count($used_hints) == 0)
-                            <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/1/team' )}}">Unlock Hint 1</a></button>
+                            @if($competition->playmode == "team")
+                                <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/1/team' )}}">Unlock Hint 1</a></button>
+                            @else
+                                <button class="ui button"><a href="{{url('/competition/'. $competition->id. '/challenge/'. $challenge->id. '/hint/1' )}}">Unlock Hint 1</a></button>
+                            @endif
                         @endif
                     @endif
                 @endif
